@@ -1,0 +1,97 @@
+                                <!DOCTYPE html>
+
+                                </html>
+
+                                <head>
+                                    <title>Add Product</title>
+
+                                    <script type="text/javascript" src="/../js/all.js"></script>
+                                </head>
+
+                                <body>
+                                    <div class="navbar navbar-inverse navbar-fixed-top">
+                                        <div class="navbar">
+                                            <div class="container">
+                                                <span class="login"><h4>Welcome: </h4><strong><h1><%=sess.firstname%>&nbsp;<%=sess.lastname%></h1><strong></span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div id="wrapper">
+                                        <div class="page-header">
+                                            <h2 align="center">Add Product</h2></div>
+                                        <div class="page-container">
+                                            <div class="page-data">
+                                                <ul>
+                                                    <li>
+                                                        <a href="/logout" role="button" class=""> Logout</a>
+                                                    </li>
+                                                </ul>
+                                                 <% if(message){%>
+                                            
+                                        <td><b><p align = "center"><font color = "red" size ="4"><%=message%></font><p></b></td>
+                                        
+                                        <% }else{
+                                        %>
+                                             <td><b><p align = "center"><font color = "red" size ="4"></font><p></b></td>
+                                        
+                                        <% }
+                                        %>
+                                                <form method="post" action="/products">
+
+                                                    <table cellpadding="1" align="center">
+                                                        <tr>
+                                                            <td class="label">Product name</td>
+                                                            <td>:
+                                                                <input type="text" name="productName" required placeholder=" Product name...">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="label">Product Quantity</td>
+                                                            <td>:
+                                                                <input type="number" name="productQuantity" required placeholder="Enter Quantity" min = "1"></textarea>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="label">Product Price</td>
+                                                            <td>:
+                                                                <input type="number" name="productPrice" required placeholder="Enter Price" min="1"></textarea>
+                                                            </td>
+                                                        </tr>
+                                                         <tr>
+                                                <td class="label">File Upload</td>
+                                                <td>:
+                                                    <input type="file" name="fileUpload" maxlength="20" required>
+                                                </td>
+                                            </tr>
+                                                        <tr>
+                                                            <td class="label"></td>
+                                                            <td>
+                                                                <input type="submit" button class="btn btn-success" name="submit" value="Save">
+                                                            </td>
+                                                            <td>
+                                                                <a href="/products" button class="btn btn-danger">cancel</a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+
+
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </body>
+
+                                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css">
+                                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap-theme.min.css">
+                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+                                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
+                                </html>

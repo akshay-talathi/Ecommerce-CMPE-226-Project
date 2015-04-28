@@ -1,0 +1,86 @@
+                      <!DOCTYPE html>
+
+                      </html>
+
+                      <head>
+                          <title>Edit Orders</title>
+
+                      </head>
+
+                      <body>
+                          <div class="navbar navbar-inverse navbar-fixed-top">
+                              <div class="navbar">
+                                  <div class="container">
+                                      <span class="login"><h4>Welcome: </h4><strong><h1><%=sess.firstname%>&nbsp;<%=sess.lastname%></h1><strong></span>
+
+                                  </div>
+                              </div>
+                          </div>
+                          <div id="wrapper">
+                              <div class="page-header">
+                                  <h2 align="center">Edit Orders</h2></div>
+                              <div class="page-container">
+                                  <div class="page-data">
+                                      <ul>
+                                          <li>
+                                              <a href="/logout" role="button" class=""> Logout</a>
+                                          </li>
+                                      </ul>
+                                      <form method="post" action="/orders/<%=order_id%>">
+
+                                          <table cellpadding="5" align="center">
+                                              <tr>
+                                                  <td class="label">name</td>
+                                                  <td>:
+                                                      <input type="text" name="username" value="<%=username%>" required>
+                                                  </td>
+                                              </tr>
+
+                                              <tr>
+                                                  <td class="label">product_id</td>
+                                                  <td>:
+                                                      <input type="text" name="product_id" value="<%=product_id%>" required>
+                                                  </td>
+                                              </tr>
+
+                                              <tr> -->
+                                                  <td class="label">order quantity</td>
+                                                  <td>:
+                                                      <input type="text" name="orderQuantity" value="<%=orderQuantity%>" required>
+                                                  </td>
+                                              </tr>
+                                              < <tr>
+                                                  <td class="label">total</td>
+                                                  <td>:
+                                                      <input type="text" name="totals" value="<%=totals%>" required>
+                                                  </td>
+                                                  </tr>
+
+
+
+                                                  <tr>
+                                                      <td>
+                                                          <input type="submit" button class="btn btn-success" name="submit" value="save">
+                                                      </td>
+
+                                                      <td>
+                                                          <a button class="btn btn-danger" href="/orders"> cancel</a>
+                                                          <br>
+                                                      </td>
+
+
+                                                  </tr>
+                                          </table>
+                                      </form>
+
+                                  </div>
+                              </div>
+                          </div>
+                      </body>
+
+                      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css">
+                      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap-theme.min.css">
+                      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+                      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
+                      </html>

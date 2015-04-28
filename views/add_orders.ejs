@@ -1,0 +1,83 @@
+                                    <!DOCTYPE html>
+
+                                    </html>
+
+                                    <head>
+                                        <title>Add Orders</title>
+
+
+                                    </head>
+
+                                    <body>
+                                        <div class="navbar navbar-inverse navbar-fixed-top">
+                                            <div class="navbar">
+                                                <div class="container">
+                                                    <span class="login"><h4>Welcome: </h4><strong><h1><%=sess.firstname%>&nbsp;<%=sess.lastname%></h1><strong></span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="wrapper">
+                                            <div class="page-header">
+                                                <h2 align="center">Add Orders</h2></div>
+                                            <div class="page-container">
+                                                <div class="page-data">
+                                                    <div class="nav-collapse collapse">
+                                                        <ul class="nav pull-right">
+                                                            <li class="dropdown">
+                                                                <ul class="nav pull-right">
+
+                                                                    <li>
+                                                                        <a href="/logout" role="button" class=""> Logout</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                        <form method="post" action="/orders">
+
+                                                            <table cellpadding="11">
+                                                                <tr>
+                                                                    <td class="label">user name</td>
+                                                                    <td>:
+                                                                        <input type="text" name="username" required placeholder=" user name...">
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td class="label" valign="top">product id</td>
+                                                                    <td valign="top">:
+                                                                        <textarea name="product_id" required cols="30" rows="5" placeholder="id..."></textarea>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+
+                                                                    <td class="label" valign="top">order quantity</td>
+                                                                    <td valign="top">:
+                                                                        <textarea name="orderQuantity" required cols="30" rows="5" placeholder="quantity..."></textarea>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+
+                                                                    <td class="label" valign="top">order total</td>
+                                                                    <td valign="top">:
+                                                                        <textarea name="totals" required cols="30" rows="5" placeholder="total..."></textarea>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="label"></td>
+                                                                    <td>
+                                                                        <input type="submit" name="submit" value="Save">
+                                                                        <a href="/orders">cancel</a>
+                                                                        <br>
+                                                                        <hr>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </form>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </body>
+
+                                    </html>

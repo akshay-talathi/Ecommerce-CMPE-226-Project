@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .bs-example {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="" id="loginModal">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h3>Login to the System Admin</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="well">
+
+                           <!--  <div id="myTabContent" class="tab-content">
+                                <div class="tab-pane active in" id="login">
+                                    <ul class="nav pull-right">
+                                        <li><a button class="btn btn-primary" href="/signup"> Signup As a User</a></li>
+<hr>
+                                         <li><a button class="btn btn-primary" href="/user/login"> Login As a User</a></li>
+
+                                    </ul> -->
+
+                                    <a href="/signup" class="btn btn-primary"> Signup As an User </a>
+
+
+               <a href="/user/login" class="btn btn-primary"> Login As an User </a>
+
+                                    <form class="form-horizontal" action='/home' method="POST">
+                                        <fieldset>
+                                            
+                                            
+                                            <% if(message){%>
+                                            
+                                        <td><b><p align = "center"><font color = "red" size ="4"><%=message%></font><p></b></td>
+                                        
+                                        <% }else{
+                                        %>
+                                             <td><b><p align = "center"><font color = "red" size ="4"></font><p></b></td>
+                                        
+                                        <% }
+                                        %>
+
+
+
+
+
+
+
+
+
+
+                                            <div id="legend">
+                                                <legend class="">Login</legend>
+                                            </div>
+                                            <div class="control-group">
+                                                <!-- Username -->
+                                                <label class="control-label" for="email">E-mail</label>
+                                                <div class="controls">
+                                                    <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+                                                </div>
+                                            </div>
+
+                                            <div class="control-group">
+                                                <!-- Password-->
+                                                <label class="control-label" for="password">Password</label>
+                                                <div class="controls">
+                                                    <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="control-group">
+                                                <!-- Button -->
+                                                <div class="controls">
+                                                    <button class="btn btn-success">Login</button>
+
+                                        </fieldset> 
+                                    </form>
+                                    </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+</body>
+
+</html>
