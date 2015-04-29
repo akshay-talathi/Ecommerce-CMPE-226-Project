@@ -8,6 +8,11 @@ Node.js used for server side routing, ejs for client side programming, express.j
 MySQL as a backend database.
 MySQL table is created with following Queries.
 
+
+------------------
+Create Database and tables.
+-------------------
+
 CREATE database e_commerce;
 
 CREATE TABLE `ecommerce1`.`User` (
@@ -108,13 +113,9 @@ CREATE TABLE `ecommerce1`.`Orders` (
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 
-------------------
-Create Database and tables.
--------------------
 
+-----------
 RUN node app.js in the terminal and project will be up and running in the localhost:4302
-
-
 -----------------
 
 Thank You.
