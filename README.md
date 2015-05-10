@@ -13,7 +13,7 @@ MySQL table is created with following Queries.
 Create Database and tables.
 -------------------
 
-CREATE database e_commerce;
+CREATE database ecommerce1;
 
 CREATE TABLE `ecommerce1`.`User` (
   `userId` INT NOT NULL AUTO_INCREMENT,
