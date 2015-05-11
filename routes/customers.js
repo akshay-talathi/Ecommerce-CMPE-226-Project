@@ -26,7 +26,7 @@
 							        var connection = mysqldb.getConnection();
 							        connection.connect();
 							        console.log("----------------data    " + data);
-							        var query = connection.query("SELECT * from ecommerce.User WHERE email = ? ", [data.email], function(err, rows) {
+							        var query = connection.query("SELECT * from ecommerce1.User WHERE email = ? ", [data.email], function(err, rows) {
 							            if (err)
 							                console.log("Error fecthing details : %s", err);
 							            if (rows[0].password == data.password) {

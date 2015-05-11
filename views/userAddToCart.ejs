@@ -28,7 +28,7 @@
                                  </li>
                               </ul>
 
-                               <form action="/user/confirmQuantity/<%=product_id%>/<%=productQuantity%>/<%=productPrice%>" method="POST">
+                               <form action="/user/confirmQuantity/<%=productID%>/<%=productQuantity%>/<%=productPrice%>" method="POST">
                               <table border="1" cellpadding="1" cellspacing="10" align="center" style=   "width: 100%">
                                  <tr>
                                     <th width="50px">No</th>
@@ -36,6 +36,7 @@
                                     <th>Image</th>
                                     <th>Quantity Available</th>
                                     <th>Price </th>
+
                                     <th> Cancel Order</th>
                                  </tr>
                                  <%
@@ -46,7 +47,7 @@
                                     <td width="50px"> <%=i+1 %></td>
                                     <td><%=data[i].productName %></td>
                           
-                          <th>  <img src="<%=data[i].productImage%>" alt= "<%=data[i].productName%>" width="350", height="50"/></th>
+                          <th>  <img src="<%=data[i].image%>" alt= "<%=data[i].productName%>" width="350", height="50"/></th>
 
                                     <td><%=data[i].productQuantity %></td>
                                     <td><%=data[i].productPrice %></td>
@@ -61,11 +62,11 @@
                                  <div class="control-group">
                                     <!-- Quantity -->
                                    
-                                          <input type="number" name="orderQuantity" min="1" required>
+                                          <input type="number" name="quantity" min="1" required>
 
                                        
                                    <td>
-                                    <button input type="submit" class="btn btn-primary">confirm order</button>
+                                    <button input type="submit" class="btn btn-primary">Add to Cart</button>
                                  </td>
                               </form>
                               

@@ -8,7 +8,7 @@
 										        res.redirect("/");
 										    } else {
 										        var connection = mysqldb.getConnection();
-										        connection.query('SELECT * FROM ecommerce.Orders', function(err, rows) {
+										        connection.query('SELECT * FROM ecommerce1.Orders', function(err, rows) {
 										            if (err)
 										                console.log("Error Selecting : %s ", err);
 										            console.log(rows);
@@ -32,7 +32,7 @@
 										        res.redirect("/");
 										    } else {
 										        var connection = mysqldb.getConnection();
-										        connection.query('SELECT * FROM ecommerce.Orders', function(err, rows) {
+										        connection.query('SELECT * FROM ecommerce1.Orders', function(err, rows) {
 										            if (err)
 										                console.log("Error Selecting : %s ", err);
 										            console.log(rows);
@@ -54,9 +54,9 @@
 										    var input = JSON.parse(JSON.stringify(req.body));
 										    var data = {
 										        username: input.username,
-										        product_id: input.product_id,
-										        orderQuantity: input.orderQuantity,
-										        totals: input.totals,
+										        productID: input.productID,
+										        quantity: input.quantity,
+										        total: input.total,
 										    };
 
 
@@ -77,7 +77,7 @@
 										};
 
 										exports.getDetailsOrders = function(req, res) {
-										    var order_id = req.params.order_id;
+										    var orderId = req.params.orderId;
 
 
 
@@ -86,7 +86,7 @@
 										    } else {
 										        var connection = mysqldb.getConnection();
 										        connection.connect();
-										        var query = connection.query("select * from Orders WHERE order_id = ?", [order_id], function(err, rows) {
+										        var query = connection.query("select * from Orders WHERE orderId = ?", [orderId], function(err, rows) {
 										            if (err)
 										                console.log("Error inserting : %s", err);
 										            console.log(rows);
@@ -94,11 +94,11 @@
 										            res.render('edit_orders', {
 										                page_title: "Details",
 										                data: rows,
-										                order_id: rows[0].order_id,
+										                orderId: rows[0].orderId,
 										                username: rows[0].username,
-										                product_id: rows[0].product_id,
-										                orderQuantity: rows[0].orderQuantity,
-										                totals: rows[0].totals,
+										                productId: rows[0].productId,
+										                quantity: rows[0].quantity,
+										                total: rows[0].total,
 										                isCancelled: rows[0].isCancelled,
 										                sess: req.session
 
@@ -113,12 +113,12 @@
 										exports.saveDetailsOrders = function(req, res) {
 
 										    var input = JSON.parse(JSON.stringify(req.body));
-										    var order_id = req.params.order_id;
+										    var orderId = req.params.orderId;
 										    var data = {
 										        username: input.username,
-										        product_id: input.product_id,
-										        orderQuantity: input.orderQuantity,
-										        totals: input.totals,
+										        product: input.productID,
+										        quantity: input.quantity,
+										        total: input.total,
 										        isCancelled: input.isCancelled
 										    };
 
@@ -129,8 +129,8 @@
 										        connection.connect();
 
 										        var query = connection.query(
-										            "UPDATE Orders set username=?, product_id = ?, orderQuantity = ?, totals = ? WHERE order_id = ?", [
-										                data.username, data.product_id, data.orderQuantity, data.totals, order_id
+										            "UPDATE Orders set username=?, productID = ?, quantity = ?, total = ? WHERE orderId = ?", [
+										                data.username, data.productID, data.quantity, data.total, orderId
 										            ],
 										            function(err, rows) {
 
@@ -149,7 +149,7 @@
 
 										exports.deleteOrders = function(req, res) {
 
-										    var order_id = req.params.order_id;
+										    var orderId = req.params.orderId;
 
 										    if (req.session.firstname === undefined) {
 										        res.redirect("/");
@@ -158,7 +158,7 @@
 										        var connection = mysqldb.getConnection();
 										        connection.connect();
 
-										        var query = connection.query("DELETE FROM Orders WHERE order_id = ?", [order_id], function(err, rows) {
+										        var query = connection.query("DELETE FROM Orders WHERE orderId = ?", [orderId], function(err, rows) {
 
 										            if (err)
 										                console.log("Error deleting : %s ", err);
@@ -173,7 +173,7 @@
 
 										exports.cancelOrder = function(req, res) {
 
-										    var order_id = req.params.order_id;
+										    var orderId = req.params.orderId;
 										    var isCancelled = req.params.isCancelled;
 										    if (req.session.firstname === undefined) {
 										        res.redirect("/");
@@ -182,17 +182,17 @@
 
 										        var connection = mysqldb.getConnection();
 										        connection.connect();
-
+										        console.log("hrrrrrrrr")
 										        if (isCancelled == 0) {
 										            console.log("iscancelled == 0");
-										            var query = connection.query("update ecommerce.Orders set isCancelled = 1 where order_id = ?", [order_id], function(err, rows) {
+										            var query = connection.query("update ecommerce1.Orders set isCancelled = 1 where orderId = ?", [orderId], function(err, rows) {
 										                if (err)
 										                    console.log("Error %s", err);
 										                res.redirect('/orders')
 										            });
 										        } else {
 										            console.log("iscancelled == 1");
-										            var query23 = connection.query("update ecommerce.Orders set isCancelled = 0 where order_id = ?", [order_id], function(err, rows) {
+										            var query23 = connection.query("update ecommerce1.Orders set isCancelled = 0 where orderId = ?", [orderId], function(err, rows) {
 										                if (err)
 										                    console.log("Error %s", err);
 										                res.redirect('/orders')
@@ -217,7 +217,7 @@
 										        res.redirect("/");
 										    } else {
 										        var connection = mysqldb.getConnection();
-										        connection.query('SELECT * FROM ecommerce.Orders where username = ?',[username], function(err, rows) {
+										        connection.query('SELECT * FROM ecommerce1.Orders where username = ?',[username], function(err, rows) {
 										            if (err)
 										                console.log("Error Selecting : %s ", err);
 										            console.log(rows);
@@ -234,7 +234,7 @@
 
 										exports.cancelOneOrder = function(req, res) {
 											var username = req.session.username;
-										    var order_id = req.params.order_id;
+										    var orderId = req.params.orderId;
 										    var isCancelled = req.params.isCancelled;
 										    if (req.session.firstname === undefined) {
 										        res.redirect("/");
@@ -247,14 +247,14 @@
 
 										        if (isCancelled == 0) {
 										            console.log("iscancelled == 0");
-										            var query = connection.query("update ecommerce.Orders set isCancelled = 1 where order_id = ?", [order_id], function(err, rows) {
+										            var query = connection.query("update ecommerce.Orders set isCancelled = 1 where orderId = ?", [orderId], function(err, rows) {
 										                if (err)
 										                    console.log("Error %s", err);
 										                res.redirect('/view/orders/' + username);
 										            });
 										        } else {
 										            console.log("iscancelled == 1");
-										            var query23 = connection.query("update ecommerce.Orders set isCancelled = 0 where order_id = ?", [order_id], function(err, rows) {
+										            var query23 = connection.query("update ecommerce.Orders set isCancelled = 0 where orderId = ?", [orderId], function(err, rows) {
 										                if (err)
 										                    console.log("Error %s", err);
 										                res.redirect('/view/orders/' + username);
@@ -264,4 +264,46 @@
 										        connection.end();
 										    };
 										}
-									
+
+
+
+
+
+										exports.changeToDelivered = function(req, res){
+											var username = req.session.username;
+											var user = req.params.username;
+											console.log('                ' + user)
+											var orderId = req.params.orderId;
+											var isDelivered = req.params.isDelivered;
+											if (req.session.firstname === undefined) {
+										        res.redirect("/");
+										    } else {
+										    	console.log("in change to delivered  " + isDelivered);
+
+										    	var connection = mysqldb.getConnection();
+										    	connection.connect();
+
+										    	if (isDelivered == 0) {
+										            console.log("isDelivered == 0");
+										            var query = connection.query("update ecommerce1.Orders set isDelivered = 1, iscancelled=0 where orderId = ?", [orderId], function(err, rows) {
+										                if (err)
+										                    console.log("Error %s", err);
+										                res.redirect('/view/orders/' + user);
+										            });
+										        } 
+										        connection.end();
+										   
+
+
+
+										    }
+
+
+										}
+
+
+
+
+
+
+

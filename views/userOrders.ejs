@@ -52,11 +52,11 @@
 
                                         <td><%=data[i].username %></td>
                                         
-                                        <td><%=data[i].product_id %></td>
+                                        <td><%=data[i].productID %></td>
 
-                                        <td><%=data[i].orderQuantity %></td>
+                                        <td><%=data[i].quantity %></td>
                                         
-                                        <td><%=data[i].totals %></td>
+                                        <td><%=data[i].total %></td>
                                         
 
                                        <!--  <td><a button class="btn btn-primary" href="/orders/edit/<%=data[i].order_id%>">Edit</a></td> -->
@@ -68,17 +68,19 @@
                                         <% }
                                         %>
 
-                                            <% if(data[i].isCancelled == 1 && data[i].isDelivered == 0){%>
+                                            <% if(data[i].isCancelled == 0 && data[i].isDelivered == 0){
+                                                %>
                                             
-                <td><a button class="btn btn-danger" href="/user/cancelOrder/<%=data[i].order_id%>/cancel/<%=data[i].isCancelled%>">Cancel</td>
+                <td><a button class="btn btn-danger" href="/user/cancelOrder/<%=data[i].orderId%>/cancel/<%=data[i].isCancelled%>">Cancel Order</td>
                                         
-                                        <% }else{
+                                        <% }if(data[i].isCancelled == 1 && data[i].isDelivered == 0){
+
                                         %>
-               <td><a button class="btn btn-default" href="/user/cancelOrder/<%=data[i].order_id%>/cancel/<%=data[i].isCancelled%>">Order Again</td>
+               <td><a button class="btn btn-default" href="/user/cancelOrder/<%=data[i].orderId%>/cancel/<%=data[i].isCancelled%>">Order Again</td>
                                         
                                         <% }
                                         %>
-                 <td><a button class="btn btn-success" href="/user/delivery/<%=data[i].order_id%>/<%=data[i].isDelivered%>">Check Status</td>
+                 <td><a button class="btn btn-success" href="/user/delivery/<%=data[i].orderId%>/<%=data[i].isDelivered%>">Check Status</td>
 
                                     </tr><%}%>
 

@@ -52,21 +52,28 @@
 
                                         <td><%=data[i].username %></td>
                                         
-                                        <td><%=data[i].product_id %></td>
+                                        <td><%=data[i].productID %></td>
 
-                                        <td><%=data[i].orderQuantity %></td>
+                                        <td><%=data[i].quantity %></td>
                                         
-                                        <td><%=data[i].totals %></td>
+                                        <td><%=data[i].total %></td>
                                         
 
                                        <!--  <td><a button class="btn btn-primary" href="/orders/edit/<%=data[i].order_id%>">Edit</a></td> -->
-                                            <% if(data[i].isDelivered == 1 ){%>
+                                            <% if(data[i].isDelivered == 1 && data[i].isCancelled == 0 ){%>
                                             
                                         <td><a button class="btn btn-danger" href="#">Delivered</td>
                                         
-                                        <% }else{
+                                        <% }if(data[i].isDelivered == 0 && data[i].isCancelled == 0){
                                         %>
                                      <td><a button class="btn btn-default" href="#">Order Under Process</td>
+                                        
+                                        <% }
+                                        %>
+
+                                        <% if(data[i].isDelivered == 0 && data[i].isCancelled == 1){
+                                        %>
+                                     <td><a button class="btn btn-danger" href="#">Order Cancelled</td>
                                         
                                         <% }
                                         %>

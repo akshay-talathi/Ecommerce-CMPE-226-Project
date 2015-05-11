@@ -27,11 +27,26 @@
                     <a button class = "btn btn-success"  href="/products/add">Add Products</a><span>
                   <hr>
 
+
+
+
 <ul>
                     <li>
                     <a href="/logout" role="button" class=""> Logout</a>
                     </li>
                    </ul>
+
+
+
+                   <form method="get" action="/search">
+                            <form>
+                                <input type="text" name="productName" placeholder="Search..." required>
+                                <input type="button" value="Search">
+</form>
+
+
+                                                </form>
+
 
                     <table border="1" cellpadding="17" cellspacing="7" align="center">
                         <tr>
@@ -57,13 +72,13 @@
 
                             <td><%=data[i].productQuantity %></td>
 
-                          <th>  <img src="<%=data[i].productImage%>" alt= "<%=data[i].productName%>" width="350", height="50"/></th>
+                          <th>  <img src="<%=data[i].image%>" alt= "<%=data[i].productName%>" width="350", height="50"/></th>
 
                             <td><%=data[i].productPrice %></td>
 
-                           <td> <a button class="btn btn-primary" href="/products/edit/<%=data[i].product_id%>">Edit</a></td>
+                           <td> <a button class="btn btn-primary" href="/products/edit/<%=data[i].productID%>">Edit</a></td>
                            
-                            <td>    <a button class="btn btn-danger" href="/deleteProducts/<%=data[i].product_id%>">Delete</a> </td>
+                            <td>    <a button class="btn btn-danger" href="/deleteProducts/<%=data[i].productID%>">Delete</a> </td>
                            
                            
                             

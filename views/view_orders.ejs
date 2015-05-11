@@ -53,23 +53,23 @@
 
                                         <td><a href="/view/orders/<%=data[i].username %>"><%=data[i].username%></a></td>
                                              
-                                        <td><%=data[i].product_id %></td>
-                                 <th>  <img src="<%=data[i].productImage%>" alt= "<%=data[i].productName%>" width="350", height="50"/></th>
+                                        <td><%=data[i].productID %></td>
+                                 <th>  <img src="<%=data[i].image%>" alt= "<%=data[i].productName%>" width="350", height="50"/></th>
 
 
-                                        <td><%=data[i].orderQuantity %></td>
+                                        <td><%=data[i].quantity %></td>
                                         
-                                        <td><%=data[i].totals %></td>
+                                        <td><%=data[i].total %></td>
                                         
 
                                        <!--  <td><a button class="btn btn-primary" href="/orders/edit/<%=data[i].order_id%>">Edit</a></td> -->
-                                            <% if(data[i].isCancelled == 1){%>
+                                            <% if(data[i].isCancelled == 0){%>
                                             
-                                        <td><a button class="btn btn-default" href="/cancelOrder/<%=data[i].order_id%>/cancelst/<%=data[i].isCancelled%>">cancelled</td>
+                                        <td><a button class="btn btn-default" href="/cancelOrder/<%=data[i].orderId%>/cancelst/<%=data[i].isCancelled%>">cancel</td>
                                         
                                         <% }else{
                                         %>
-                                     <td><a button class="btn btn-danger" href="/cancelOrder/<%=data[i].order_id%>/cancelst/<%=data[i].isCancelled%>">cancel</td>
+                                     <td><a button class="btn btn-danger" href="#">cancelled</td>
                                         
                                         <% }
                                         %>

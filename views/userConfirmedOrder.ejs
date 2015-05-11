@@ -33,7 +33,7 @@
                                         for(var i=0;i<data.length;i++){
 
                                         %>
-                             <form method="post" action="/user/a/products/confirm/<%=data[i].product_id%>/<%=orderQuantit%>/<%=data[i].productPrice%>">
+                             <form method="post" action="/user/a/products/confirm/<%=data[i].productID%>/<%=quantity%>/<%=data[i].productPrice%>">
 
                                     <table border="1" cellpadding="17" cellspacing="7" align="center">
                                         <tr>
@@ -42,7 +42,6 @@
                                             <th>Name</th>
                                             <th>Order Quantity</th>
                                             <th>Quantity Available</th>
-                                            
                                             <th>Price </th>
                                             <th> Confirm Order</th>
                                          
@@ -51,16 +50,14 @@
                                         <tr>
                                           <td width="50px"> <%=i+1 %></td>
                                             <td><%=data[i].productName %>
-                                            <td><%=orderQuantit %></td>
+                                            <td><%= quantity %></td>
 
                                             <td><%=data[i].productQuantity %></td>
+                                                                                        <td><%=total %></td>
 
-                                            <td><%=total %></td>
-
-                                                       <td>  <input type="submit" button class ="btn btn-success" name="sunbmit" value="Confirm & Pay">
+                                                       <td>  <input type="submit" button class ="btn btn-success" name="submit" value="Confirm & Pay">
                                                             
-                                     <!--    <td> <a button class="btn btn-primary" href="/user/a/products/confirm/<%=data[i].product_id%>/<%=orderQuantit%>">Confirm Order</a></td> -->
-                                           
+                                     
                                            
                                            
                                             

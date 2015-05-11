@@ -21,6 +21,7 @@
 												};
 
 
+												
 
 
 												exports.doLoginAdmin = function(req, res) {
@@ -35,17 +36,18 @@
 												        depth: null
 												    }));
 
+												    
+
 												    var connection = mysqldb.getConnection();
 												    connection.connect();
-												    var query = connection.query("select * from ecommerce.Admin where email = '" + input.email + "' and password = '" + input.password + "';",
+												    var query = connection.query("select * from ecommerce1.Admin where email = '" + input.email + "' and password = '" + input.password + "';",
 												        function(err, rows) {
 												            if (err) {
 												                console.log("Error Fetching Message: %s", err);
 												            } else {
 												                console.log(rows);
 												                if (rows[0] === undefined) {
-												                    console.log("            123======       error in do login admin  ===== ");
-												                      req.flash('info', 'Incorrect Login Details. Please Enter Valid Email Address and Password');
+												                      req.flash('info', 'Login Details are Incorrect, Please Enter Details Again !');
 												                    res.redirect('/login');
 												                } else {
 												                    if (rows[0].password === input.password) {
@@ -123,7 +125,7 @@
 
 												        console.log("3233 ");
 												        var connection = mysqldb.getConnection();
-												        connection.query('SELECT * FROM ecommerce.Products where productQuantity > 0', function(err, rows) {
+												        connection.query('SELECT * FROM ecommerce1.Products', function(err, rows) {
 												            if (err)
 												                console.log("Error Selecting : %s ", err);
 												            console.log(rows);
@@ -180,7 +182,7 @@
 												        var connection = mysqldb.getConnection();
 												        console.log(data);
 												        connection.connect();
-												        var query = connection.query("Insert into ecommerce.Products set ?", data, function(
+												        var query = connection.query("Insert into ecommerce1.Products set ?", data, function(
 												            err, rows) {
 												            if (err){
 												                console.log("Error inserting : %s", err);
@@ -199,27 +201,27 @@
 
 
 												exports.getDetails = function(req, res) {
-												    var product_id = req.params.product_id;
-												    console.log("-----------............-----------       " + product_id);
+												    var productID = req.params.productID;
+												    console.log("-----------............-----------       " + productID);
 
 												    if (req.session.firstname === undefined) {
 												        res.redirect("/");
 												    } else {
 												        var connection = mysqldb.getConnection();
 												        connection.connect();
-												        var query = connection.query("select * from ecommerce.Products WHERE product_id = ?", [product_id], function(err, rows) {
+												        var query = connection.query("select * from ecommerce1.Products WHERE productID = ?", [productID], function(err, rows) {
 												            if (err)
-												                console.log("Error inserting : %s", err);
+												                console.log("Error selecting : %s", err);
 												            console.log(rows);
 
 												            res.render('edit_products', {
 												                page_title: "Details",
 												                data: rows,
-												                product_id: rows[0].product_id,
+												                productID: rows[0].productID,
 												                productName: rows[0].productName,
 												                productQuantity: rows[0].productQuantity,
 												                productPrice: rows[0].productPrice,
-												                productImage : rows[0].productImage,
+												                image : rows[0].image,
 																message : req.flash('info'),
 																sess: req.session,
 
@@ -229,13 +231,50 @@
 												    }
 												};
 
+
+												exports.searchProduct = function(req, res){
+
+												    var input = JSON.parse(JSON.stringify(req.body));
+
+												    if (req.session.firstname === undefined) {
+												        res.redirect("/");
+												    } else {
+												    	var connection = mysqldb.getConnection();
+												    	connection.connect();
+												    	var data = {
+												            productName: input.productName,
+												          
+												        };
+
+												        console.log("Data is     "+ data)
+
+
+												    	var query = connection.query('select * from ecommerce1.Products where productName =  ?',[data], function(err,rows){
+												    		if(err)
+												    			console.log("Error selecting %s", err);
+												    		console.log("huheuhuhuh rows      "   + rows);
+
+												    		res.render('displaySearch',{
+												    			data: rows,
+												    			
+												                sess : req.session,
+												    		})
+												    	});
+												    	connection.end();
+												    }
+
+
+												}
+
+
+
 												exports.saveDetails = function(req, res) {
 
 												    var input = JSON.parse(JSON.stringify(req.body));
-												    var product_id = req.params.product_id;
+												    var productID = req.params.productID;
 
 												    console.log(req.files);
-												    console.log("product ID IS EQUAL TO    " + product_id);
+												    console.log("product ID IS EQUAL TO    " + productID);
 
 												    if (req.session.firstname === undefined) {
 												        res.redirect("/");
@@ -251,12 +290,12 @@
 												        console.log(data);
 												        var query = connection
 												            .query(
-												                "UPDATE Products set productName=?, productQuantity = ?, productPrice = ? WHERE product_id = ?", [data.productName, data.productQuantity, data.productPrice, product_id],
+												                "UPDATE Products set productName=?, productQuantity = ?, productPrice = ? WHERE productID = ?", [data.productName, data.productQuantity, data.productPrice, productID],
 												                function(err, rows) {
 													            if (err){
 													                console.log("Error inserting : %s", err);
 													                req.flash('info', 'Incorrect entries, Please Enter Valid Data');
-													                res.redirect('/products/edit/' + product_id);
+													                res.redirect('/products/edit/' + productID);
 
 													            }
 													                else{
@@ -275,7 +314,7 @@
 
 												exports.deleteProducts = function(req, res) {
 
-												    var id = req.params.product_id;
+												    var id = req.params.productID;
 
 												    if (req.session.firstname === undefined) {
 												        res.redirect("/");
@@ -283,7 +322,7 @@
 												        var connection = mysqldb.getConnection();
 												        connection.connect();
 
-												        var query = connection.query("DELETE FROM Products WHERE product_id = ?", [id], function(err, rows) {
+												        var query = connection.query("DELETE FROM Products WHERE productID = ?", [id], function(err, rows) {
 
 												            if (err)
 												                console.log("Error deleting : %s ", err);

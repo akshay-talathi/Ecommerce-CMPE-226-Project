@@ -42,6 +42,7 @@
                                         <th>Prouct id</th>
                                         <th>Order Quantity</th>
                                         <th>Total Price</th>
+                                        <th>Order Status</th>
                                         <th>Delivery Status</th>
                 <!--                         <th>Edit</th>-->
                                     </tr><%for(var i=0;i<data.length;i++){ %>
@@ -51,26 +52,43 @@
 
                                         <td><a href="/view/orders/<%=data[i].username %>"><%=data[i].username%></a></td>
                                              
-                                        <td><%=data[i].product_id %></td>
+                                        <td><%=data[i].productID %></td>
 
-                                        <td><%=data[i].orderQuantity %></td>
+                                        <td><%=data[i].quantity %></td>
                                         
-                                        <td><%=data[i].totals %></td>
+                                        <td><%=data[i].total %></td>
  
-                                          <% if(data[i].isDelivered == 1){%>
-                                            
-                                        <td><a button class="btn btn-success" href="#">Delivered</td>
-                                        
-                                        <% }else{
-                                        %>
+                                         
 
-                                        <%if(data[i].isCancelled == 1){%>
-                                             <td><a button class="btn btn-danger" href="#">Cancelled</td>
+                                        <%if(data[i].isCancelled == 1 ){%>
+                                             <td><a button class="btn btn-danger" href="#">Order Cancelled</td>
 
                                              <%} else{%>
-                                            <td><a button class="btn btn-warning" href="#">Under Process</td>
-                                        <% }}
+                                            <td><a button class="btn btn-warning" href="#">Order Confirmed</td>
+                                        <% }
                                         %>
+
+                                        <%if(data[i].isDelivered == 0 && data[i].isCancelled ==0){%>
+                                        <td><a button class="btn btn-primary" href="/user/order/deliver/<%=data[i].username%>/<%=data[i].orderId%>/<%=data[i].isDelivered%>">Under Process</td>
+                                             
+
+                                             <%} if(data[i].isCancelled == 1){%>
+                                                <td><a button class="btn btn-danger" href="#">Order Cancelled</td>
+                                        <% }
+                                        %>
+
+                                        <%
+                                        if(data[i].isDelivered == 1 && data[i].isCancelled == 0){%>
+                                                <td><a button class="btn btn-success" href="#">Order Delivered</td>
+                                        <% }
+                                        %>
+
+
+
+                                        
+
+
+
                                     </tr><%}%>
                                 </table>
                             </div>
