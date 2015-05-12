@@ -1,108 +1,110 @@
-                <!DOCTYPE html>
-                <html>
+<!DOCTYPE html>
+<html>
 
-                <head>
-                    <title>Orders List</title>
-                    <link href="/../style.css" rel="stylesheet">
-                    <script src="/../js/all.js" type="text/javascript"></script>
+<head>
+    <title>Orders List</title>
+    <link href="/../style.css" rel="stylesheet">
+    <script src="/../js/all.js" type="text/javascript"></script>
+   <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bootstrap/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/bootstrap/css/prettyPhoto.css" rel="stylesheet">
+    <link href="/bootstrap/css/price-range.css" rel="stylesheet">
+    <link href="/bootstrap/css/animate.css" rel="stylesheet">
+    <link href="/bootstrap/css/main.css" rel="stylesheet">
+    <link href="/bootstrap/css/responsive.css" rel="stylesheet">
 
-                </head>
+</head>
 
-                <body>
-                    <h2 align="center">View Orders</h2>
+<body>
+ <header id="header"><!--header-->
+    <div class="header_top"><!--header_top-->
+      <div class="container">
 
+          <div class="col-sm-6">
+            <div class="social-icons pull-right">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!--/header_top-->
+    
+    <div class="header-middle"><!--header-middle-->
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="logo pull-left">
+              <a href="#"><img src="/images/logo.png" alt="" /></a>
+            </div>
+            <div class="btn-group pull-right">
+              <div class="btn-group">
 
-                    <span class="login"><h4>Welcome: </h4><strong><h1><%=sess.firstname%>&nbsp;<%=sess.lastname%></h1><strong></span>
-
-                    <div class="page-container">
-                        <div class="page-data">
-                            <div class="data-btn"></div>
-
-                            <div class="data-table" align="center">
-                                <a button class="btn btn-primary" href="/home">Home</a><span>
-                                <a button class = "btn btn-warning" href="/products">View Products</a><span>
-                                <a button class = "btn btn-info" href="/orders">View Orders</a><span>
-                                
-                               <!-- <a button class = "btn btn-success"  href="/orders/add">Add Orders</a><span>-->
-                                
-                                    <hr>
-                                    
-                                    <ul>
-                                    <li>
-                                    <a href="/logout" role="button" class=""> Logout</a>
-                                    </li>
-                                   </ul>
-                                
-                                <table border="1" cellpadding="17" cellspacing="7" aLIGN="center">
-                                    <tr>
-                                        <th width="50px">No</th>
-
-                                        <th>User Name</th>
-
-                                        <th>Prouct id</th>
-                                        <th>Order Quantity</th>
-                                        <th>Total Price</th>
-                                        <th>Order Status</th>
-                                        <th>Delivery Status</th>
-                <!--                         <th>Edit</th>-->
-                                    </tr><%for(var i=0;i<data.length;i++){ %>
-
-                                    <tr>
-                                        <td width="50px"><%=i+1 %></td>
-
-                                        <td><a href="/view/orders/<%=data[i].username %>"><%=data[i].username%></a></td>
-                                             
-                                        <td><%=data[i].productID %></td>
-
-                                        <td><%=data[i].quantity %></td>
-                                        
-                                        <td><%=data[i].total %></td>
- 
-                                         
-
-                                        <%if(data[i].isCancelled == 1 ){%>
-                                             <td><a button class="btn btn-danger" href="#">Order Cancelled</td>
-
-                                             <%} else{%>
-                                            <td><a button class="btn btn-warning" href="#">Order Confirmed</td>
-                                        <% }
-                                        %>
-
-                                        <%if(data[i].isDelivered == 0 && data[i].isCancelled ==0){%>
-                                        <td><a button class="btn btn-primary" href="/user/order/deliver/<%=data[i].username%>/<%=data[i].orderId%>/<%=data[i].isDelivered%>">Under Process</td>
-                                             
-
-                                             <%} if(data[i].isCancelled == 1){%>
-                                                <td><a button class="btn btn-danger" href="#">Order Cancelled</td>
-                                        <% }
-                                        %>
-
-                                        <%
-                                        if(data[i].isDelivered == 1 && data[i].isCancelled == 0){%>
-                                                <td><a button class="btn btn-success" href="#">Order Delivered</td>
-                                        <% }
-                                        %>
+              </div>
+              
+              <div class="btn-group">
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <div class="shop-menu pull-right">
+              <ul class="nav navbar-nav">
+                <li><a href="#"><i class="fa fa-user"></i> <%=sess.firstname%>&nbsp;<%=sess.lastname%></a></li>
+                <li><a href="/home"><i class="fa fa-star"></i> Home</a></li>
+                <li><a href="/products"><i class="fa fa-crosshairs"></i> Products</a></li>
+                <li><a href="/orders"><i class="fa fa-shopping-cart"></i> Orders</a></li>
 
 
+                <li><a href="/products/add"><i class="fa fa-shopping-cart1"></i> Add Products</a></li>
 
-                                        
-
-
-
-                                    </tr><%}%>
-                                </table>
+                <li><a href="/logout"><i class="fa fa-lock"></i> Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!--/header-middle-->
+  
+    
+        
+        </div>
+      </div>
+    </div><!--/header-bottom-->
+  </header>
+                <% for(var i=0;i<data.length;i++) { %>
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <p>User Name: <a href="/view/orders/<%=data[i].username %>"><%=data[i].username%></a></p>
+                                    <p>Product Id: <%= data[i].productID %></p>
+                                    <p>Quzntity: <%= data[i].quantity %></p>
+                                    <p>Total: <%= data[i].total %></p>
+                                    <% if(data[i].isCancelled == 1){%>
+                                        <a href="#" class="btn btn-danger"><i class="fa fa-shopping-cart"></i>Order Cancelled</a>
+                                    <% } else { %>
+                                        <a href="#" class="btn btn-info"><i class="fa fa-shopping-cart"></i>Order Confirmed</a>
+                                    <% } if(data[i].isDelivered == 0 && data[i].isCancelled ==0) { %>
+                                        <a href="/user/order/deliver/<%=data[i].username%>/<%=data[i].orderId%>/<%=data[i].isDelivered%>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Under Process</a>
+                                    <% } if(data[i].isCancelled == 1) { %>
+                                        <a href="#" class="btn btn-danger"><i class="fa fa-shopping-cart"></i>Order Cancelled</a>
+                                    <% } if(data[i].isDelivered == 1 && data[i].isCancelled == 0) { %>
+                                        <a href="#" class="btn btn-success"><i class="fa fa-shopping-cart"></i>Order Delivered</a>
+                                    <% } %>
+                                </div>
+                              
                             </div>
                         </div>
                     </div>
-                </body>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</body>
 
-                <link rel="stylesheet"
-                    href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css">
-                <link rel="stylesheet"
-                    href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap-theme.min.css">
-                <script
-                    src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-                <script
-                    src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
 
-                </html>
+</html>

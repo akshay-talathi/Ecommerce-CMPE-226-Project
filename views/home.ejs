@@ -16,7 +16,12 @@
                                             <title> Admin Home</title>
                                             <link href="/../style.css" rel="stylesheet">
                                             <script type="text/javascript" src="/../js/all.js"></script>
-                                        </head>
+                                                <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+                                                    <link href="/bootstrap/css/full-slider.css" rel="stylesheet">
+                                                            <link href="/bootstrap/css/responsive.css" rel="stylesheet">
+                                           </head>
                                         <style type="text/css">
                                         </style>
 
@@ -26,54 +31,60 @@
 
 
 
-                                            <nav class="navbar navbar-inverse navbar-fixed-top">
-                                                <div class="container-fluid">
-                                                    <div class="page-header">
-                                                        <a class="navbar-brand" href="#"><h1 align="center"> <font color="white">Ecommerce Website</font></h1></a>
+                                             <header id="header"><!--header-->
+                                            <div class="header_top"><!--header_top-->
+                                              <div class="container">
+
+                                                  <div class="col-sm-6">
+                                                    <div class="social-icons pull-right">
+                                                      
                                                     </div>
-                                                    <div>
-                                                        <ul class="nav navbar-nav">
-                                                            <li class="active"><a href="">Home</a></li>
-                                                            <div class="navbar navbar-inverse navbar-fixed-top">
-                                                                <div class="navbar">
-                                                                    <div class="container">
-                                                                        <span class="login"><font color= "white"><h4>Welcome: </h4><strong><h1><%=sess.firstname%>&nbsp;<%=sess.lastname%></font></h1><strong></span>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div><!--/header_top-->
 
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        </ul>
-                                                        <ul class="nav navbar-nav navbar-right">
-                                                            <li><a button class="btn-btn-primary" href="/logout"><span class="glyphicon glyphicon-user"></span> <font color="white">Logout</font></a></li>
-
-
-
-                                                        </ul>
+                                            <div class="header-middle"><!--header-middle-->
+                                              <div class="container">
+                                                <div class="row">
+                                                  <div class="col-sm-4">
+                                                    <div class="logo pull-left">
+                                                      <a href="#"><img src="/images/logo.png" alt="" /></a>
                                                     </div>
+                                                    <div class="btn-group pull-right">
+                                                      <div class="btn-group">
+
+                                                      </div>
+                                                      
+                                                      <div class="btn-group">
+                                                        
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-sm-8">
+                                                    <div class="shop-menu pull-right">
+                                                      <ul class="nav navbar-nav">
+                                                        <li><a href="#"><i class="fa fa-user"></i>Welcome : <%=sess.firstname%>&nbsp;<%=sess.lastname%></a></li>
+                                                        <li><a href="/home"><i class="fa fa-star"></i> Home</a></li>
+                                                        <li><a href="/products"><i class="fa fa-crosshairs"></i> Products</a></li>
+                                                        <li><a href="/orders"><i class="fa fa-shopping-cart"></i> Orders</a></li>
+
+
+
+                                                        <li><a href="/logout"><i class="fa fa-lock"></i> Logout</a></li>
+                                                      </ul>
+                                                    </div>
+                                                  </div>
                                                 </div>
-                                                <div class="data-table">
+                                              </div>
+                                            </div><!--/header-middle-->
 
 
-                                                    <table border="1" cellpadding="7" cellspacing="7">
-                                                        <table align="center">
-                                                            <tr>
-                                                                <td>
-
-                                                                    <a button class="btn btn-primary" href="/products">Manage Products</a>
-                                                                    <br>
-                                                                    <hr>
-                                                                </td>
-                                                                <td> <a button class="btn btn-primary" href="/orders">Manage Orders</a>
-                                                                    <hr>
-                                                                </td>
-
-
-
-                                                            </tr>
-                                                        </table>
+                                                
                                                 </div>
-                                            </nav>
+                                              </div>
+                                            </div><!--/header-bottom-->
+                                            </header>
 
 
 

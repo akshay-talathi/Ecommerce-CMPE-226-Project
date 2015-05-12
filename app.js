@@ -77,7 +77,7 @@
                                 app.get('/user/products', user.viewProducts);
                                 app.get('/user/add/:productID', user.addToCart);
 
-                                app.post('/user/confirmQuantity/:productID/:productQuantity/:productPrice', user.confirmQuantity);
+                                app.post('/user/confirmQuantity/:productID/:quantity/:productPrice', user.confirmQuantity);
 
                                 app.get('/user/products/confirm/:productID/:quantity/:productPrice', user.confirmOrder);
 

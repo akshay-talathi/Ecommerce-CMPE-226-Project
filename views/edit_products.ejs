@@ -9,31 +9,73 @@
 
     </style>
                     <head>
+
                         <title>Edit Product</title>
 
                         <script type="text/javascript" src="/../js/all.js"></script>
+
+    <!-- Custom CSS -->
                     </head>
 
-                    <body>
-                        <div class="navbar navbar-inverse navbar-fixed-top">
-                            <div class="navbar">
-                                <div class="container">
-                                    <span class="login"><h4>Welcome: </h4><strong><h1><%=sess.firstname%>&nbsp;<%=sess.lastname%></h1><strong></span>
+    <body>
+                                         <header id="header"><!--header-->
+                                            <div class="header_top"><!--header_top-->
+                                              <div class="container">
 
-                                </div>
-                            </div>
-                        </div>
-                        <div id="wrapper">
-                            <div class="page-header">
-                                <h2 align="center">Edit Product</h2></div>
-                            <div class="page-container">
-                                <div class="page-data">
-                                    <ul>
-                                        <li>
-                                            <a href="/logout" role="button" class=""> Logout</a>
-                                        </li>
-                                    </ul>
-                                    <form method="post" action="/products/<%=productID%>">
+                                                  <div class="col-sm-6">
+                                                    <div class="social-icons pull-right">
+                                                      
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div><!--/header_top-->
+
+                                            <div class="header-middle"><!--header-middle-->
+                                              <div class="container">
+                                                <div class="row">
+                                                  <div class="col-sm-4">
+                                                    <div class="logo pull-left">
+                                                      <a href="#"><img src="/images/logo.png" alt="" /></a>
+                                                    </div>
+                                                    <div class="btn-group pull-right">
+                                                      <div class="btn-group">
+
+                                                      </div>
+                                                      
+                                                      <div class="btn-group">
+                                                        
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-sm-8">
+                                                    <div class="shop-menu pull-right">
+                                                      <ul class="nav navbar-nav">
+                                                        <li><a href="#"><i class="fa fa-user"></i>Welcome : <%=sess.firstname%>&nbsp;<%=sess.lastname%></a></li>
+                                                        <li><a href="/home"><i class="fa fa-star"></i> Home</a></li>
+                                                        <li><a href="/products"><i class="fa fa-crosshairs"></i> Products</a></li>
+                                                        <li><a href="/orders"><i class="fa fa-shopping-cart"></i> Orders</a></li>
+
+
+
+                                                        <li><a href="/logout"><i class="fa fa-lock"></i> Logout</a></li>
+                                                      </ul>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div><!--/header-middle-->
+
+
+                                                
+                                                </div>
+                                              </div>
+                                            </div><!--/header-bottom-->
+                                            </header>
+
+
+
+                              <form method="post" action="/products/<%=productID%>">
                                                  <% if(message){%>
                                             
                                         <td><b><p align = "center"><font color = "red" size ="4"><%=message%></font><p></b></td>

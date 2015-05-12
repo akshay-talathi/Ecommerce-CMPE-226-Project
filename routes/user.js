@@ -199,7 +199,7 @@
 
 									    var input = JSON.parse(JSON.stringify(req.body));
 									    var productID = req.params.productID;
-									    var prodQuant = req.params.productQuantity;
+									    var prodQuant = req.params.quantity;
 									    var orderId = req.params.orderId;
 									    var productPrice = req.params.productPrice;
 									    var userId = req.session.userId;
