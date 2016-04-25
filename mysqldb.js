@@ -3,8 +3,8 @@ var mysql = require('mysql');
 
 function getConnection(){
 	var connection = mysql.createConnection({   
-		facebook_api_key      :     "420507768127451",
-  		facebook_api_secret   :     "cb799a25b790181819c231af9307ccdc",
+		facebook_api_key      :     "",
+  		facebook_api_secret   :     "",
    	    callback_url         :     "http://localhost:4302/auth/facebook/callback",
      
 	    host: 'localhost',
